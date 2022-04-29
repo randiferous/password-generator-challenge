@@ -4,37 +4,56 @@
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
+var randomNumber = function(min, max) {
+  var value = Math.floor(Math.random() * (max - min) + min);
+  return value;
+};
+
+function generatePassword() {
+  var lowerCase = window.confirm("Click OK to confirm including lower case characters.");
+  console.log(lowerCase);
+  var upperCase = window.confirm("Click OK to confirm including upper case characters.");
+  console.log(upperCase);
+  var numeric = window.confirm("Click OK to confirm including numeric characters.");
+  console.log(numeric);
+  var special = window.confirm("Click OK to confirm including special characters.");
+  console.log(special);
+  if (lowerCase === false && upperCase === false && numeric === false && special === false) {
+    window.alert("You must select at least one character type.")
+    return generatePassword;
+  }
+
+
+  var arr1 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+  var arr2 = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'] 
+  var arr3 = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+  var arr4 = [ ' ', '!', '"', '#', '$', '%', '&', "'", '(', ')', '*', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '^', '_', '`', '{', '|', '}', '~']
+  }
+  // need a way to activate specific arrays based on character confirms
+
+
 // Write password to the #password input
 function writePassword() {
-  var passwordStart = window.alert("Click OK to review password criteria.");
-  var passwordMin = window.prompt("What is the minimum length of your password?");
-  if (passwordMin < 8) {
-    window.alert("Password cannot be less than 8 characters.")
+  var generateLength = window.prompt("How many characters would you like your password to contain?");
+  if (generateLength < 8) {
+    window.alert("Password must be greater than 7 characters.")
     return writePassword();
   }
-  if (passwordMin >= 8) {
-    console.log("Minimum password length " + passwordMin);
-    var passwordMax = window.prompt("What is the maximum length of your password?");
-    if (passwordMax > 128) {
-      window.alert("Password cannot exceed 128 characters.")
-      return writePassword();
-    }
-    if (passwordMax <= 128) {
-      console.log("Maximum password length " + passwordMax);
-      window.alert("Password will be between " + passwordMin + " and " + passwordMax + " characters.")
-    }
+  if (generateLength > 128) {
+    window.alert("Password must be less than 129 characters.")
+    return writePassword();
   }
-  var characterType = window.prompt("Will password include lowercase letters? (type 'yes' or 'no')");
-  if (characterType != "yes" || "no") {
-    window.alert("You did not provide a valid response. Try again");
-  }
-  var characterType = window.prompt("Will password include uppercase letters? (type 'yes' or 'no')");
-  var characterType = window.prompt("Will password include numeric characters? (type 'yes' or 'no')");
-  var characterType = window.prompt("Will password include special characters? (type 'yes' or 'no')");
+  generateLength = parseInt(generateLength);
+  console.log(generateLength);
 
-  var password = generatePassword();
+  var passwordLength = randomNumber(8, generateLength);
+  console.log(passwordLength);
+  generatePassword();
+
+  
+  var password = generatePassword(); // return a string which should be the final random password
   var passwordText = document.querySelector("#password");
-
+  console.log(passwordText)
   passwordText.value = password;
 
 }
