@@ -11,7 +11,7 @@ Here is a list of noteworthy observations I made during this challenge:
 - The order in which you place the code is important both for the computer reading it and for yourself in understanding it.
 - In JavaScript, there may be multiple correct answers to a certain problem. It is on you to figure out not only the best one but the one that makes sense to you.
 
-Overall, this challenge was definitely worth the time it took. I learned a lot through trial and error and was forced to conduct my own research throughout the process. Here is the URL link where you can test the password generation: 
+Overall, this challenge was definitely worth the time it took. I learned a lot through trial and error and was forced to conduct my own research throughout the process. Here is the URL link where you can test the password generation: https://randiferous.github.io/password-generator-challenge/
 
 Screenshot of homepage before password is generated:
 
